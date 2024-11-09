@@ -12,10 +12,7 @@ const {
   fetchUserById,
   getUserDetails,
 } = require("./controller/users");
-const {
-  escalation,
-  getFilteredEscalations,
-} = require("./controller/escalation");
+const { escalation } = require("./controller/escalation");
 const { evaluation } = require("./controller/evaluation");
 const { ppc } = require("./controller/ppc");
 const { auth } = require("./middleware/auth");
@@ -73,7 +70,6 @@ app.get("/fetchleaders", auth, fetchTeamLead);
 app.get("/fetchuserbyid/:id", fetchUserById);
 app.get("/getuserdata/:name", auth, getUserDetails);
 app.get("/notification", auth, getNotification);
-app.get("/getfilteredscalations", getFilteredEscalations);
 
 app.get("/audio/:filename", (req, res) => {
   const file = path.join(__dirname, "uploads", req.params.filename);

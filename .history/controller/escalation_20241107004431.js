@@ -36,27 +36,3 @@ exports.escalation = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
-exports.getFilteredEscalations = async (req, res) => {
-  try {
-    let { filter } = req.query;
-    const query = {};
-
-    if (filter) {
-      filter = filter.toLowerCase();
-      query.userrating = filter;
-    }
-
-    console.log("Filter:", filter);
-    const escalations = await escalationModel.find(query);
-
-    console.log("Escalations found:", escalations);
-
-    res
-      .status(200)
-      .json({ escalations, message: "Filtered results", success: true });
-  } catch (error) {
-    console.error("Error fetching escalations:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-};

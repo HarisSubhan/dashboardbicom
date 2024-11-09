@@ -12,10 +12,7 @@ const {
   fetchUserById,
   getUserDetails,
 } = require("./controller/users");
-const {
-  escalation,
-  getFilteredEscalations,
-} = require("./controller/escalation");
+const { escalation } = require("./controller/escalation");
 const { evaluation } = require("./controller/evaluation");
 const { ppc } = require("./controller/ppc");
 const { auth } = require("./middleware/auth");
